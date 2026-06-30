@@ -144,9 +144,15 @@ function filteredSessions() {
   });
 }
 
+function isBreakSession(session) {
+  const breakKeywords = ["☕", "🍽️", "🎤", "🥂", "🎉", "🤝", "🏛️", "🎪", "Coffee Break", "Lunch Break", "Career Fair", "Pre-Conference Break", "Welcome Networking", "President's Reception", "Success Circles", "ISCB Town Hall", "Caffeinate & Connect"];
+  return breakKeywords.some((kw) => session.title.includes(kw));
+}
+
 function createSessionCard(session) {
+  const isBreak = isBreakSession(session);
   const card = document.createElement("article");
-  card.className = `session-card${state.saved.has(session.id) ? " saved" : ""}`;
+  card.className = `session-card${state.saved.has(session.id) ? " saved" : ""}${isBreak ? " break-card" : ""}`;
 
   const time = document.createElement("div");
   time.className = "time-block";
@@ -154,6 +160,22 @@ function createSessionCard(session) {
 
   const main = document.createElement("div");
   main.className = "session-main";
+
+  if (isBreak) {
+    const title = document.createElement("p");
+    title.className = "break-title";
+    title.textContent = session.title;
+    if (session.roomDisplay && session.roomDisplay !== "All Rooms") {
+      const loc = document.createElement("span");
+      loc.className = "break-location";
+      loc.textContent = session.roomDisplay;
+      main.append(title, loc);
+    } else {
+      main.append(title);
+    }
+    card.append(time, main);
+    return card;
+  }
 
   const title = document.createElement("button");
   title.className = "session-title";
