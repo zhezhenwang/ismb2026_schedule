@@ -1,4 +1,4 @@
-const cacheName = "ismbeccb-main-days-schedule-v3";
+const cacheName = "ismbeccb-main-days-schedule-v4";
 const assets = [
   "./",
   "./index.html",
