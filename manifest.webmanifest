@@ -1,0 +1,15 @@
+{
+  "name": "ISMB 2026",
+  "short_name": "ISMB 2026",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fbfcfb",
+  "theme_color": "#0f6f61",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
