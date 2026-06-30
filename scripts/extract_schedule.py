@@ -15,9 +15,9 @@ COLUMNS = [
     ("end", 143, 190),
     ("room", 190, 255),
     ("track", 255, 333),
-    ("title", 333, 445),
-    ("presenter", 445, 512),
-    ("format", 512, 557),
+    ("title", 333, 439),      # corrected: was 445, which bled into presenter col
+    ("presenter", 439, 513),  # corrected: was 445-512, now aligns with PDF header at 446.7
+    ("format", 513, 557),
     ("authors", 557, 678),
     ("abstract", 678, 2000),
 ]
@@ -60,7 +60,7 @@ def clean_record(record):
     record["searchText"] = normalize_spaces(
         " ".join(
             record.get(field, "")
-            for field in ["date", "start", "end", "room", "track", "title", "authors", "abstract"]
+            for field in ["date", "start", "end", "room", "track", "title", "presenter", "authors", "abstract"]
         ).lower()
     )
     return record
