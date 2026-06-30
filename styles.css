@@ -184,6 +184,11 @@ h1 {
   background: linear-gradient(0deg, rgba(223, 242, 238, 0.55), rgba(255, 255, 255, 0.92));
 }
 
+.session-card.saved.conflict {
+  border-color: rgba(190, 18, 60, 0.45);
+  background: linear-gradient(0deg, rgba(254, 226, 226, 0.72), rgba(255, 255, 255, 0.9));
+}
+
 .time-block {
   display: grid;
   gap: 2px;

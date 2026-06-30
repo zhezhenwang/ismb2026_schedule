@@ -3,6 +3,7 @@ const storageKey = "ismbeccb-saved-sessions";
 const state = {
   sessions: [],
   saved: new Set(),
+  conflicts: new Set(),
   query: "",
   day: "all",
   track: "all",
@@ -96,6 +97,34 @@ function sessionTime(session) {
   return `${session.startLabel}-${session.endLabel}`;
 }
 
+function timeToMinutes(time) {
+  const [hours, minutes] = time.split(":").map(Number);
+  return hours * 60 + minutes;
+}
+
+function updateSavedConflicts() {
+  state.conflicts = new Set();
+  const savedSessions = state.sessions
+    .filter((session) => state.saved.has(session.id))
+    .map((session) => ({
+      ...session,
+      startMinutes: timeToMinutes(session.start),
+      endMinutes: timeToMinutes(session.end),
+    }));
+
+  for (let i = 0; i < savedSessions.length; i += 1) {
+    for (let j = i + 1; j < savedSessions.length; j += 1) {
+      const first = savedSessions[i];
+      const second = savedSessions[j];
+      if (first.dayKey !== second.dayKey) continue;
+      if (first.startMinutes < second.endMinutes && second.startMinutes < first.endMinutes) {
+        state.conflicts.add(first.id);
+        state.conflicts.add(second.id);
+      }
+    }
+  }
+}
+
 function canonicalTrack(track) {
   const trimmed = (track || "").trim();
   if (!trimmed) return "";
@@ -152,7 +181,11 @@ function isBreakSession(session) {
 function createSessionCard(session) {
   const isBreak = isBreakSession(session);
   const card = document.createElement("article");
-  card.className = `session-card${state.saved.has(session.id) ? " saved" : ""}${isBreak ? " break-card" : ""}`;
+  const classes = ["session-card"];
+  if (state.saved.has(session.id)) classes.push("saved");
+  if (state.conflicts.has(session.id)) classes.push("conflict");
+  if (isBreak) classes.push("break-card");
+  card.className = classes.join(" ");
 
   const time = document.createElement("div");
   time.className = "time-block";
@@ -218,6 +251,7 @@ function createSessionCard(session) {
 }
 
 function render() {
+  updateSavedConflicts();
   const sessions = filteredSessions();
   elements.list.replaceChildren();
   elements.savedCount.textContent = state.saved.size;
