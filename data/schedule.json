@@ -1856,6 +1856,24 @@
       "searchText": "2026-07-13 12:40:00 13:00:00 9-10 combo compms: computational mass spectrometry shine: decoding transcriptional- metabolic microenvironments through higher-order spatial integration bingxue du bingxue du, jason wing hon wong, yuanhua huang spatial omics technologies are expanding to co-profile transcriptomics and metabolomics on the same tissue slide, providing complementary views of gene expression and biochemical activity to reveal molecular programs within native tissue microenvironments. however, integrating the transcriptome and metabolome remains technically challenging due to spatial misalignment, resolution disparity, and higher- order cross-modality interactions. here, we present shine, a hypergraph-based computational framework for the joint analysis of spatial gene expression and metabolic networks derived from the co-profiling slide, focusing on representation learning and cross-modality interaction. across multiple datasets, shine consistently outperformed existing methods for domain segmentation and biomarker co-localization, and provided interpretable insights into metabolic-transcriptional microenvironments. specifically, on parkinson’s disease mouse models, shine accurately delineates dopaminergic neuron-depleted regions and reconstructs coherent dopamine-associated axes. in human lung and breast cancers, shine resolves tumor-associated spatial regions and identifies spatially organized geneâ€“metabolite programs associated with the tumor microenvironment. shine enables scalable spatial multi-omics integration across diverse biological systems."
     },
     {
+      "id": "s703",
+      "date": "2026-07-13",
+      "start": "12:40:00",
+      "end": "12:50:00",
+      "room": "Georgetown",
+      "track": "MICROBIOME",
+      "title": "Quantifying classification stability under reference database perturbation",
+      "presenter": "Elizabeth Hunter",
+      "format": "In person",
+      "authors": "Elizabeth Hunter, Rob Patro",
+      "abstract": "applications by providing deeper, actionable insights. Metagenomic classification of mixed biological samples is commonly performed using marker-gene surveys, contig assembly and binning, or direct classification of individual reads against reference databases. The latter approach has become popular because it is rapid, scalable, and well suited to large shotgun sequencing datasets. However, its accuracy depends strongly on the composition of the reference database, raising concerns about the quality and stability of the resulting taxonomic assignments. In many cases, a label may reflect not only the biological signal in the read, but also the presence or absence of related genomes in the database. As databases expand, some assignments become more robust, whereas others become more ambiguous. To investigate this, we applied a bootstrap framework to three reference sets representing distinct biological contexts: Viridiplantae, the Kraken2 Standard database, and Enterobacteriaceae. For each set, we generated ten Kraken2 databases by sampling genomes with replacement and used kraken-inspect summaries to calculate the coefficient of variation for each taxon across the replicates. Taxa with high and low variability were selected for downstream analysis, and simulated Illumina reads were classified across the bootstrapped databases. Classification changes were quantified using a basic edge-walking metric and a custom ontology aware weighted entropy score that penalizes taxon changes according to phylogenetic distance and rank. Across all datasets, high variability taxa showed significantly greater classification instability than low variability taxa. These findings were used to inform confidence scores that account for database composition, and develop more robust, database aware methods for sequence classification.",
+      "dateLabel": "2026-07-13",
+      "startLabel": "12:40",
+      "endLabel": "12:50",
+      "dayKey": "2026-07-13",
+      "searchText": "2026-07-13 12:40:00 12:50:00 georgetown microbiome quantifying classification stability under reference database perturbation elizabeth hunter elizabeth hunter, rob patro applications by providing deeper, actionable insights. metagenomic classification of mixed biological samples is commonly performed using marker-gene surveys, contig assembly and binning, or direct classification of individual reads against reference databases. the latter approach has become popular because it is rapid, scalable, and well suited to large shotgun sequencing datasets. however, its accuracy depends strongly on the composition of the reference database, raising concerns about the quality and stability of the resulting taxonomic assignments. in many cases, a label may reflect not only the biological signal in the read, but also the presence or absence of related genomes in the database. as databases expand, some assignments become more robust, whereas others become more ambiguous. to investigate this, we applied a bootstrap framework to three reference sets representing distinct biological contexts: viridiplantae, the kraken2 standard database, and enterobacteriaceae. for each set, we generated ten kraken2 databases by sampling genomes with replacement and used kraken-inspect summaries to calculate the coefficient of variation for each taxon across the replicates. taxa with high and low variability were selected for downstream analysis, and simulated illumina reads were classified across the bootstrapped databases. classification changes were quantified using a basic edge-walking metric and a custom ontology aware weighted entropy score that penalizes taxon changes according to phylogenetic distance and rank. across all datasets, high variability taxa showed significantly greater classification instability than low variability taxa. these findings were used to inform confidence scores that account for database composition, and develop more robust, database aware methods for sequence classification."
+    },
+    {
       "id": "s317",
       "date": "2026-07-13",
       "start": "12:40:00",
@@ -12098,5 +12116,5 @@
       "searchText": "2026-07-16 17:40:00 18:00:00 international ballroom center distinguished keynotes conference closing ceremony"
     }
   ],
-  "sessionCount": 672
+  "sessionCount": 673
 }
